@@ -55,7 +55,18 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #endregion
 
-        #region Methods
+        #region Methods       
+
+        public virtual IActionResult List()
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePayments))
+                return AccessDeniedView();
+
+            //prepare model
+            var model = _paymentModelFactory.PreparePaymentsSearchModel(new PaymentsSearchModel());
+
+            return View(model);
+        }
 
         public virtual IActionResult Methods()
         {

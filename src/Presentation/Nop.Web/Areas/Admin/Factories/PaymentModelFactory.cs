@@ -51,6 +51,22 @@ namespace Nop.Web.Areas.Admin.Factories
         #region Methods
 
         /// <summary>
+        /// Prepare payments search model
+        /// </summary>
+        /// <param name="searchModel">Payments search model</param>
+        /// <returns>Payments search model</returns>
+        public virtual PaymentsSearchModel PreparePaymentsSearchModel(PaymentsSearchModel searchModel)
+        {
+            if (searchModel == null)
+                throw new ArgumentNullException(nameof(searchModel));
+
+            //prepare page parameters
+            searchModel.SetGridPageSize();
+
+            return searchModel;
+        }
+
+        /// <summary>
         /// Prepare payment method search model
         /// </summary>
         /// <param name="searchModel">Payment method search model</param>

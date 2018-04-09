@@ -4908,6 +4908,9 @@
   <LocaleResource Name="Admin.Configuration.Shipping.Measures.Weights.Fields.SystemKeyword.Required">
     <Value>Please provide a system keyword.</Value>
   </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Payments">
+    <Value>Payments</Value>
+  </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Payment">
     <Value>Payment</Value>
   </LocaleResource>
@@ -16094,6 +16097,9 @@
   </LocaleResource>
   <LocaleResource Name="Permission.ManageCurrencies">
     <Value>Admin area. Manage Currencies</Value>
+  </LocaleResource>
+  <LocaleResource Name="Permission.ManagePayments">
+    <Value>Admin area. Manage Payments</Value>
   </LocaleResource>
   <LocaleResource Name="Permission.ManageCurrentCarts">
     <Value>Admin area. Manage Current Carts</Value>
