@@ -910,7 +910,10 @@ set @resources='
   </LocaleResource> 
   <LocaleResource Name="Admin.Configuration.Settings.Order.DeleteGiftCardUsageHistory.Hint">
     <Value>Check to delete gift card usage history after order cancellation</Value>
-  </LocaleResource>   
+  </LocaleResource> 
+  <LocaleResource Name="Admin.Configuration.Payments">
+    <Value>Payments</Value>
+  </LocaleResource>
 </Language>
 '
 

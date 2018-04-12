@@ -4,16 +4,16 @@
 
 @{
     //page title
-    ViewBag.Title = T("Admin.Configuration.Payment").Text;
+    ViewBag.Title = T("Admin.Configuration.Payments").Text;
     //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Payment");
+    Html.SetActiveMenuItemSystemName("Payments");
 }
 
 <nop-antiforgery-token/>
 
 <div class="content-header clearfix">
     <h1 class="pull-left">
-        @T("Admin.Configuration.Payment")
+        @T("Admin.Configuration.Payments")
     </h1>
     <div class="pull-right">
         
@@ -23,7 +23,7 @@
 <div class="content">
     <div class="form-horizontal">
         <nop-tabs id="payments">
-            <nop-tab asp-name="tab-payment" asp-title="@T("Admin.Configuration.Payment")" asp-default="true">@await Html.PartialAsync("Methods", Model)</nop-tab>
+            <nop-tab asp-name="tab-payment" asp-title="@T("Admin.Configuration.Payment.Methods")" asp-default="true">@await Html.PartialAsync("Methods", Model)</nop-tab>
             <nop-tab asp-name="tab-methodrestrictions" asp-title="@T("Admin.Configuration.Payment.MethodRestrictions")">@await Html.PartialAsync("MethodRestrictions", Model)</nop-tab>
         </nop-tabs>
     </div>

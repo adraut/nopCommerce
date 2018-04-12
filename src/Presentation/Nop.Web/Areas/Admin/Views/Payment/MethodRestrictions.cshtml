@@ -1,10 +1,10 @@
-@model PaymentMethodRestrictionModel
+@model PaymentsSearchModel
 
 @{
     //page title
     ViewBag.Title = T("Admin.Configuration.Payment.MethodRestrictions").Text;
     //active menu item (system name)
-    Html.SetActiveMenuItemSystemName("Payment method restrictions");
+    Html.SetActiveMenuItemSystemName("Payments");
 }
 
 
@@ -28,11 +28,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <p>@T("Admin.Configuration.Payment.MethodRestrictions.Description")</p>
-                        @if (Model.AvailablePaymentMethods.Count == 0)
+                        @if (Model.PaymentMethodRestriction.AvailablePaymentMethods.Count == 0)
                         {
                         <text>No payment methods installed</text>
                         }
-                        else if (Model.AvailableCountries.Count == 0)
+                        else if (Model.PaymentMethodRestriction.AvailableCountries.Count == 0)
                         {
                         <text>No countries available</text>
                         }
@@ -40,7 +40,7 @@
                         {
                         <script>
                                 $(document).ready(function () {
-                                    @foreach (var pm in Model.AvailablePaymentMethods)
+                                    @foreach (var pm in Model.PaymentMethodRestriction.AvailablePaymentMethods)
                                     {
                                         var systemNameWithoutDot = pm.SystemName.Replace(".", "");
                                         <text>
@@ -57,7 +57,7 @@
                                     <th scope="col" style="padding-top: 14px;">
                                         <strong>@T("Admin.Configuration.Payment.MethodRestrictions.Country")</strong>
                                     </th>
-                                    @foreach (var pm in Model.AvailablePaymentMethods)
+                                    @foreach (var pm in Model.PaymentMethodRestriction.AvailablePaymentMethods)
                                                 {
                                                     var systemNameWithoutDot = pm.SystemName.Replace(".", "");
                                                 <th scope="col">
@@ -70,15 +70,15 @@
                                                 </th>
                                                 }
                                 </tr>
-                                @foreach (var c in Model.AvailableCountries)
+                                @foreach (var c in Model.PaymentMethodRestriction.AvailableCountries)
                                             {
                                             <tr>
                                                 <td>
                                                     <span>@c.Name</span>
                                                 </td>
-                                                @foreach (var pm in Model.AvailablePaymentMethods)
+                                                @foreach (var pm in Model.PaymentMethodRestriction.AvailablePaymentMethods)
                                                     {
-                                                        var restricted = Model.Resticted.ContainsKey(pm.SystemName) && Model.Resticted[pm.SystemName][c.Id];
+                                                        var restricted = Model.PaymentMethodRestriction.Resticted.ContainsKey(pm.SystemName) && Model.PaymentMethodRestriction.Resticted[pm.SystemName][c.Id];
                                                         var systemNameWithoutDot = pm.SystemName.Replace(".", "");
                                                     <td>
                                                         <input class="restrict_@(systemNameWithoutDot)" type="checkbox" value="@(c.Id)" name="restrict_@(pm.SystemName)" @(restricted ? " checked=checked" : null) />
