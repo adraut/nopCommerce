@@ -55,11 +55,11 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #endregion
 
-        #region Methods       
+        #region Methods        
 
-        public virtual IActionResult List()
+        public virtual IActionResult Payments()
         {
-            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePayments))
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
                 return AccessDeniedView();
 
             //prepare model
@@ -136,6 +136,18 @@ namespace Nop.Web.Areas.Admin.Controllers
 
             //prepare model
             var model = _paymentModelFactory.PreparePaymentMethodRestrictionModel(new PaymentMethodRestrictionModel());
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public virtual IActionResult MethodRestrictions(PaymentMethodRestrictionModel searchmodel)
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
+                return AccessDeniedView();
+
+            //prepare model
+            var model = _paymentModelFactory.PreparePaymentMethodRestrictionModel(searchmodel);
 
             return View(model);
         }

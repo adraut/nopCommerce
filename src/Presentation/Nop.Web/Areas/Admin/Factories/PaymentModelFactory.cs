@@ -61,7 +61,12 @@ namespace Nop.Web.Areas.Admin.Factories
                 throw new ArgumentNullException(nameof(searchModel));
 
             //prepare page parameters
-            searchModel.SetGridPageSize();
+            //not used
+            //searchModel.SetGridPageSize();
+
+            //prepare nested search models
+            PreparePaymentMethodSearchModel(searchModel.PaymetsMethod);
+            PreparePaymentMethodRestrictionModel(searchModel.PaymentMethodRestriction);
 
             return searchModel;
         }

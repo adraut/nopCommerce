@@ -1,0 +1,40 @@
+@model PaymentsSearchModel
+
+@inject IEventPublisher eventPublisher
+
+@{
+    //page title
+    ViewBag.Title = T("Admin.Configuration.Payment").Text;
+    //active menu item (system name)
+    Html.SetActiveMenuItemSystemName("Payment");
+}
+
+<nop-antiforgery-token/>
+
+<div class="content-header clearfix">
+    <h1 class="pull-left">
+        @T("Admin.Configuration.Payment")
+    </h1>
+    <div class="pull-right">
+        
+    </div>
+</div>
+
+<div class="content">
+    <div class="form-horizontal">
+        <nop-tabs id="payments">
+            <nop-tab asp-name="tab-payment" asp-title="@T("Admin.Configuration.Payment")" asp-default="true">@await Html.PartialAsync("Methods", Model)</nop-tab>
+            <nop-tab asp-name="tab-methodrestrictions" asp-title="@T("Admin.Configuration.Payment.MethodRestrictions")">@await Html.PartialAsync("MethodRestrictions", Model)</nop-tab>
+        </nop-tabs>
+    </div>
+</div>
+
+@{
+    //custom tabs
+    var eventMessage = new AdminTabStripCreated(this.Html, "payments");
+    eventPublisher.Publish(eventMessage);
+    foreach (var eventBlock in eventMessage.BlocksToRender)
+    {
+        @eventBlock
+    }
+}
