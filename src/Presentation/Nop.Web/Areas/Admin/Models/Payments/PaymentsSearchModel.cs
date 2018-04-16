@@ -11,7 +11,7 @@ namespace Nop.Web.Areas.Admin.Models.Payments
 
         public PaymentsSearchModel()
         {
-            PaymetsMethod = new PaymentMethodSearchModel();
+            PaymentsMethod = new PaymentMethodSearchModel();
             PaymentMethodRestriction = new PaymentMethodRestrictionModel();
         }
 
@@ -19,7 +19,7 @@ namespace Nop.Web.Areas.Admin.Models.Payments
 
         #region Properties
 
-        public PaymentMethodSearchModel PaymetsMethod { get; set; }
+        public PaymentMethodSearchModel PaymentsMethod { get; set; }
 
         public PaymentMethodRestrictionModel PaymentMethodRestriction { get; set; }
 

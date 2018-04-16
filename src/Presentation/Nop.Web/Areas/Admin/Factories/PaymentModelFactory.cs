@@ -60,12 +60,8 @@ namespace Nop.Web.Areas.Admin.Factories
             if (searchModel == null)
                 throw new ArgumentNullException(nameof(searchModel));
 
-            //prepare page parameters
-            //not used
-            //searchModel.SetGridPageSize();
-
             //prepare nested search models
-            PreparePaymentMethodSearchModel(searchModel.PaymetsMethod);
+            PreparePaymentMethodSearchModel(searchModel.PaymentsMethod);
             PreparePaymentMethodRestrictionModel(searchModel.PaymentMethodRestriction);
 
             return searchModel;

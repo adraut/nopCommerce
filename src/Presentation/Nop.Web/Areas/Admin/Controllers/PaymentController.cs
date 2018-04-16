@@ -68,17 +68,6 @@ namespace Nop.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-        public virtual IActionResult Methods()
-        {
-            if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
-                return AccessDeniedView();
-
-            //prepare model
-            var model = _paymentModelFactory.PreparePaymentMethodSearchModel(new PaymentMethodSearchModel());
-
-            return View(model);
-        }
-
         [HttpPost]
         public virtual IActionResult Methods(PaymentMethodSearchModel searchModel)
         {
@@ -116,6 +105,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                     _settingService.SaveSetting(_paymentSettings);
                 }
             }
+
             var pluginDescriptor = pm.PluginDescriptor;
             pluginDescriptor.FriendlyName = model.FriendlyName;
             pluginDescriptor.DisplayOrder = model.DisplayOrder;
@@ -138,10 +128,10 @@ namespace Nop.Web.Areas.Admin.Controllers
             var model = _paymentModelFactory.PreparePaymentMethodRestrictionModel(new PaymentMethodRestrictionModel());
 
             return View(model);
-        }        
+        }
 
         [HttpPost, ActionName("MethodRestrictions")]
-        public virtual IActionResult MethodRestrictionsSave(PaymentMethodRestrictionModel model)
+        public virtual IActionResult MethodRestrictionsSave(PaymentsSearchModel model)
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
                 return AccessDeniedView();
@@ -165,12 +155,16 @@ namespace Nop.Web.Areas.Admin.Controllers
                         newCountryIds.Add(c.Id);
                     }
                 }
+
                 _paymentService.SaveRestictedCountryIds(pm, newCountryIds);
             }
 
             SuccessNotification(_localizationService.GetResource("Admin.Configuration.Payment.MethodRestrictions.Updated"));
 
-            return RedirectToAction("MethodRestrictions");
+            //selected tab
+            SaveSelectedTabName();
+
+            return RedirectToAction("Payments");
         }
 
         #endregion
