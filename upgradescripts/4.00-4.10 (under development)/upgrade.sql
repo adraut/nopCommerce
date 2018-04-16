@@ -914,6 +914,9 @@ set @resources='
   <LocaleResource Name="Admin.Configuration.Payments">
     <Value>Payments</Value>
   </LocaleResource>
+  <LocaleResource Name="Permission.ManagePayments">
+    <Value>Admin area. Manage Payments</Value>
+  </LocaleResource>
 </Language>
 '
 
