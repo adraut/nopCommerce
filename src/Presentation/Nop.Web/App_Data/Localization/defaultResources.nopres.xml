@@ -4913,10 +4913,7 @@
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.PaymentMethodsAndRestrictions">
     <Value>Payment methods and restrictions</Value>
-  </LocaleResource>
-  <LocaleResource Name="Admin.Configuration.Payment">
-    <Value>Payment</Value>
-  </LocaleResource>
+  </LocaleResource>  
   <LocaleResource Name="Admin.Configuration.Payment.MethodRestrictions">
     <Value>Payment restrictions</Value>
   </LocaleResource>
