@@ -57,7 +57,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
         #region Methods        
 
-        public virtual IActionResult Payments()
+        public virtual IActionResult PaymentMethods()
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
                 return AccessDeniedView();
@@ -164,7 +164,7 @@ namespace Nop.Web.Areas.Admin.Controllers
             //selected tab
             SaveSelectedTabName();
 
-            return RedirectToAction("Payments");
+            return RedirectToAction("PaymentMethods");
         }
 
         #endregion

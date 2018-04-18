@@ -26,10 +26,10 @@
     if (plugin is IPaymentMethod)
     {
         //payment plugin
-        activeMenuSystemName = "Payments";
+        activeMenuSystemName = "PaymentMethods";
         configureLocale = "Admin.Configuration.Payment.Methods.Configure";
         backToLocale = "Admin.Configuration.Payment.Methods.BackToList";
-        listActionMethodName = "Payments";
+        listActionMethodName = "PaymentMethods";
         listControllerName = "Payment";
     }
     else if (plugin is IShippingRateComputationMethod)
