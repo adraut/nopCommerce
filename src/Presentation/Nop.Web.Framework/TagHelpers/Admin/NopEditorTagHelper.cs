@@ -97,15 +97,14 @@ namespace Nop.Web.Framework.TagHelpers.Admin
             //clear the output
             output.SuppressOutput();
 
-            //get htmlAttributes object
+            //container for additional attributes
             var htmlAttributes = new Dictionary<string, object>();
 
             //disabled attribute
             bool.TryParse(IsDisabled, out bool disabled);
             if (disabled)
             {
-                var d = new TagHelperAttribute("disabled", "disabled");
-                htmlAttributes.Add(d.Name, d.Value);
+                htmlAttributes.Add("disabled", "disabled");
             }
 
             //required asterisk
