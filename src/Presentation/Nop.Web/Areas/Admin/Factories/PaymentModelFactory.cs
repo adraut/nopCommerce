@@ -51,20 +51,20 @@ namespace Nop.Web.Areas.Admin.Factories
         #region Methods
 
         /// <summary>
-        /// Prepare payments search model
+        /// Prepare payment methods model
         /// </summary>
-        /// <param name="searchModel">Payments search model</param>
-        /// <returns>Payments search model</returns>
-        public virtual PaymentsSearchModel PreparePaymentsSearchModel(PaymentsSearchModel searchModel)
+        /// <param name="methodsModel">Payment methods model</param>
+        /// <returns>Payment methods model</returns>
+        public virtual PaymentMethodsModel PreparePaymentMethodsModel(PaymentMethodsModel methodsModel)
         {
-            if (searchModel == null)
-                throw new ArgumentNullException(nameof(searchModel));
+            if (methodsModel == null)
+                throw new ArgumentNullException(nameof(methodsModel));
 
             //prepare nested search models
-            PreparePaymentMethodSearchModel(searchModel.PaymentsMethod);
-            PreparePaymentMethodRestrictionModel(searchModel.PaymentMethodRestriction);
+            PreparePaymentMethodSearchModel(methodsModel.PaymentsMethod);
+            PreparePaymentMethodRestrictionModel(methodsModel.PaymentMethodRestriction);
 
-            return searchModel;
+            return methodsModel;
         }
 
         /// <summary>

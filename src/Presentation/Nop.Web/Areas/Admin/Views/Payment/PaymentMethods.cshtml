@@ -1,4 +1,4 @@
-@model PaymentsSearchModel
+@model PaymentMethodsModel
 
 @inject IEventPublisher eventPublisher
 
@@ -28,8 +28,8 @@
     <div class="content">
         <div class="form-horizontal">
             <nop-tabs id="payment-methods">
-                <nop-tab asp-name="tab-payment" asp-title="@T("Admin.Configuration.Payment.Methods")" asp-default="true">@await Html.PartialAsync("_Methods", Model)</nop-tab>
-                <nop-tab asp-name="tab-methodrestrictions" asp-title="@T("Admin.Configuration.Payment.MethodRestrictions")">@await Html.PartialAsync("_MethodRestrictions", Model)</nop-tab>
+                <nop-tab asp-name="tab-payment" asp-title="@T("Admin.Configuration.Payment.Methods")" asp-default="true">@await Html.PartialAsync("_PaymentMethods.Methods", Model)</nop-tab>
+                <nop-tab asp-name="tab-methodrestrictions" asp-title="@T("Admin.Configuration.Payment.MethodRestrictions")">@await Html.PartialAsync("_PaymentMethods.MethodRestrictions", Model)</nop-tab>
             </nop-tabs>
         </div>
     </div>

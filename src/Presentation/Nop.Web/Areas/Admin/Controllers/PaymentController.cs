@@ -63,7 +63,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //prepare model
-            var model = _paymentModelFactory.PreparePaymentsSearchModel(new PaymentsSearchModel());
+            var model = _paymentModelFactory.PreparePaymentMethodsModel(new PaymentMethodsModel());
 
             return View(model);
         }
@@ -131,7 +131,7 @@ namespace Nop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost, ActionName("MethodRestrictions")]
-        public virtual IActionResult MethodRestrictionsSave(PaymentsSearchModel model)
+        public virtual IActionResult MethodRestrictionsSave(PaymentMethodsModel model)
         {
             if (!_permissionService.Authorize(StandardPermissionProvider.ManagePaymentMethods))
                 return AccessDeniedView();

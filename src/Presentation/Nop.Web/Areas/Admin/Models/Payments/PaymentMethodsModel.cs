@@ -3,13 +3,13 @@
 namespace Nop.Web.Areas.Admin.Models.Payments
 {
     /// <summary>
-    /// Represents a payments search model
+    /// Represents a payment methods model
     /// </summary>
-    public partial class PaymentsSearchModel : BaseSearchModel
+    public partial class PaymentMethodsModel : BaseNopModel
     {
         #region Ctor
 
-        public PaymentsSearchModel()
+        public PaymentMethodsModel()
         {
             PaymentsMethod = new PaymentMethodSearchModel();
             PaymentMethodRestriction = new PaymentMethodRestrictionModel();
